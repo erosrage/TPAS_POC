@@ -7,8 +7,7 @@ import requests, re, time, csv, os
 import CREDENTIALS
 import pandas as pd
 
-#LOCATION = os.path.dirname(os.path.abspath(__file__)) 
-LOCATION = '//sjshare//csg//orderfulfillment//SCOBPS//Michael_T//Automation Scripts//TPAS_POC//'
+
 
 def site_login(UN, Pass):
         driver = webdriver.Chrome(executable_path='C://Python7//chromedriver.exe')
@@ -57,8 +56,11 @@ def SaveToCSV(C,L):
         DF.to_csv(L + 'output.csv', index=False, header=False)
 
 #############################################################################################
+#LOCATION = os.path.dirname(os.path.abspath(__file__)) 
+LOCATION = CREDENTIALS.LOCATION
+collect = [['Campaign','First Tracked','Last Tracked','Impressions','CTR','Awareness','Engagement','Completion','Client']]
+
 UN = CREDENTIALS.UN
 PASS = CREDENTIALS.PASS
 site_login(UN, PASS)
-collect = [['Campaign','First Tracked','Last Tracked','Impressions','CTR','Awareness','Engagement','Completion','Client']]
 SaveToCSV(collect, LOCATION)
