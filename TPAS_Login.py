@@ -7,12 +7,10 @@ import requests, re, time, csv, os
 import CREDENTIALS
 import pandas as pd
 
-
-
 def site_login(UN, Pass):
-        driver = webdriver.Chrome(executable_path='C://Python7//chromedriver.exe')
+        driver = webdriver.Chrome(executable_path= CREDENTIALS.LOCATION + 'chromedriver.exe')
         driver.get ('https://studio2.innovid.com/analytics/campaigns.php')
-        #driver.maximize_window()
+        driver.maximize_window()
         driver.find_element_by_id('username').send_keys(UN)
         driver.find_element_by_id ('user_pass').send_keys(Pass)
         driver.find_element_by_id('signin-button').click()
